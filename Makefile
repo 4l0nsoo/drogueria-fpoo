@@ -44,7 +44,7 @@ test: $(addprefix run-, $(TEST_NAMES))
 
 clean:
 ifeq ($(OS),Windows_NT)
-	-@del /Q /F build\*.o build\*.d build\*.exe build\*.csv drogueria.exe 2>NUL
+	-@del /Q /F build\*.o build\*.d build\*.exe build\*.csv drogueria.exe
 else
 	@rm -f build/*.o build/*.d build/*.csv build/test_* drogueria
 endif
