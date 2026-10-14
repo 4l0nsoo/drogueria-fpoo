@@ -7,23 +7,23 @@
 #include "CMenu.h"
 using namespace std;
 
-CMenu::CMenu(CInventario& inventario_, istream& entrada_, ostream& salida_) //Función menú de clase menú
+CMenu::CMenu(CInventario& inventario_, istream& entrada_, ostream& salida_)
     : inventario(inventario_), entrada(entrada_), salida(salida_) {
         int choice;
         salida <<"╔══════════════════════════════════════════╗\n"
                <<"          MENÚ OPCIONES - DROGUERÍA         \n"
                <<"╚══════════════════════════════════════════╝\n"<<endl;
-        salida << "1.  \n";
-        salida << "2. \n";
-        salida << "3. \n";
-        salida << "4. \n";
-        salida << "5. \n";
-        salida << "6. \n";
-        salida << "7. \n";
-        salida << "8. \n";
-        salida << "9. \n";
+        salida << "1. Agregar medicamento\n";
+        salida << "2. Eliminar medicamento\n";
+        salida << "3. Mostrar medicamentos\n";
+        salida << "4. Buscar medicamento\n";
+        salida << "5. Vender medicamento\n";
+        salida << "6. Reestablecer\n";
+        salida << "7. Mostrar reportes\n";
+        salida << "8. Guardar\n";
+        salida << "9. Cargar el inventario\n";
         salida << "0. Salir\n";
-        salida << "Ingrese su elección: "; //entero
+        salida << "Ingrese su elección: ";
         entrada >> choice;
 }
 
