@@ -1,0 +1,16 @@
+' PLANTILLA para el fragmento UML de su grupo.
+' Copie este archivo como docs/uml_<modulo>.puml (ej: docs/uml_buscador.puml),
+' reemplace CNombreDeSuClase por su clase y complete atributos y métodos
+' (los del contrato + los privados auxiliares que usted agregue en su .cpp/.h propio).
+@startuml
+class CNombreDeSuClase{
+- atributo: tipo
+
++ metodo1(parametros): tipoRetorno
++ metodo2(parametros): tipoRetorno
+}
+
+' Colaboradores (ejemplo):
+' CNombreDeSuClase ..> CInventario : usa
+' CNombreDeSuClase ..> CMedicamento : usa
+@enduml

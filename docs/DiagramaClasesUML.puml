@@ -1,0 +1,41 @@
+' Pegar en https://plantuml.com/ para visualizarlo.
+' Este es el diagrama de la BASE (commit 0). Cada grupo agrega su propio fragmento
+' en docs/uml_<modulo>.puml (por ejemplo docs/uml_buscador.puml) para no pisarse.
+@startuml
+class CMedicamento{
+- id: int
+- nombre: string
+- formaDePresentacion: int
+- cantidadDisponible: int
+- costoDeCompra: float
+- precioDeVenta: float
+
++ CMedicamento(id, nombre, forma, cantidad, costo, precio)
++ getId(): int
++ getNombre(): string
++ getFormaDePresentacion(): int
++ getCantidadDisponible(): int
++ getCostoDeCompra(): float
++ getPrecioDeVenta(): float
++ setCantidadDisponible(cantidad)
++ mostrarMedicamento()
+}
+
+class CInventario{
+- nombre: string
+- fecha: string
+- inventario: vector<CMedicamento>
+
++ CInventario(nombre, fecha)
++ adicionarMedicamento(medicamento)
++ elimininarMedicamento(medicamento)
++ mostrarInventario()
++ getNombre(): string
++ getFecha(): string
++ getMedicamentos(): vector<CMedicamento>&
++ setNombre(nombre)
++ setFecha(fecha)
+}
+
+CInventario "1" o-- "*" CMedicamento
+@enduml

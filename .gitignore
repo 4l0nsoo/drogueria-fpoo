@@ -1,0 +1,11 @@
+# Compilado
+build/*
+!build/.gitkeep
+drogueria
+drogueria.exe
+pruebas/test_*
+!pruebas/test_*.cpp
+*.o
+*.d
+*.exe
+inventario.csv
