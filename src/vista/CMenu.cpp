@@ -43,6 +43,11 @@ void CMenu::ejecutar(){
     // STUB (Grupo 1): implementar
     
     switch (choice) {
+
+        case 0:
+            salida<<"Gracias por visitarnos"<<endl;
+            return;
+
         case 1: {
             CValidador validador (entrada, salida);
             CFormulario formulario(validador, salida);
@@ -100,7 +105,7 @@ void CMenu::ejecutar(){
             break;}
             
         default:
-            
+            salida<<"Opcion incorrecta. Intentelo de nuevo"<<endl;
             break;
         }
     }   
