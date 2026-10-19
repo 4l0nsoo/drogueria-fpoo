@@ -1,0 +1,24 @@
+' PLANTILLA para el fragmento UML de su grupo.
+' Copie este archivo como docs/uml_<modulo>.puml (ej: docs/uml_buscador.puml),
+' reemplace CNombreDeSuClase por su clase y complete atributos y métodos
+' (los del contrato + los privados auxiliares que usted agregue en su .cpp/.h propio).
+startuml
+class CMenu {
+    - inventario : CInventario&
+    - entrada : std::istream&
+    - salida : std::ostream&
+
+    + CMenu(inventario : CInventario&, entrada : std::istream&, salida : std::ostream&)
+    + ejecutar() : void
+}
+
+' Relaciones de dependencia (uso)
+CMenu ..> CInventario : usa
+CMenu ..> CValidador : usa
+CMenu ..> CFormulario : usa
+CMenu ..> CPresentador : usa
+CMenu ..> CBuscador : usa
+CMenu ..> CGestorStock : usa
+CMenu ..> CReportes : usa
+CMenu ..> CPersistencia : usa
+@enduml
