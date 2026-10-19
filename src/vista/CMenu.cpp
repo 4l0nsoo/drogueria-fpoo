@@ -19,8 +19,13 @@
 using namespace std;
 
 CMenu::CMenu(CInventario& inventario_, istream& entrada_, ostream& salida_)
-    : inventario(inventario_), entrada(entrada_), salida(salida_) {
-        int choice;
+    : inventario(inventario_), entrada(entrada_), salida(salida_) {    }
+       
+void CMenu::ejecutar(){
+    int choice = -1;
+    string confirm;
+    // STUB (Grupo 1): implementar
+    while(true){
         salida <<"╔══════════════════════════════════════════╗\n"
                <<"          MENÚ OPCIONES - DROGUERÍA         \n"
                <<"╚══════════════════════════════════════════╝\n"<<endl;
@@ -35,18 +40,16 @@ CMenu::CMenu(CInventario& inventario_, istream& entrada_, ostream& salida_)
         salida << "9. Cargar el inventario\n";
         salida << "0. Salir\n";
         salida << "Ingrese su elección: ";
-        entrada >> choice;
-    }
-       
-void CMenu::ejecutar(){
-    int choice = -1;
-    // STUB (Grupo 1): implementar
-    
-    switch (choice) {
 
-        case 0:
+        if (!(entrada >> choice)) {
+            break;
+        }
+    
+        if(choice == 0){
             salida<<"Gracias por visitarnos"<<endl;
-            return;
+            break;
+        }
+    switch (choice) {
 
         case 1: {
             CValidador validador (entrada, salida);
@@ -58,7 +61,14 @@ void CMenu::ejecutar(){
             CValidador validador (entrada, salida);
             CFormulario formulario (validador, salida);
             CMedicamento med = formulario.pedirMedicamento(); 
-            inventario.elimininarMedicamento(med);    
+                salida << "esta seguro que desea eliminar el medicamento?\n Si (y) No (n)"<<endl;
+                entrada >> confirm;
+            if (confirm == "y" || confirm == "Y") {
+                    inventario.elimininarMedicamento(med);
+                    salida << "Medicamento eliminado." << endl;
+                } else {
+                    salida << "Operacion cancelada." << endl;
+                }
             break;}
         case 3:{
             CPresentador presentador (salida);
@@ -107,6 +117,7 @@ void CMenu::ejecutar(){
         default:
             salida<<"Opcion incorrecta. Intentelo de nuevo"<<endl;
             break;
+        }
         }
     }   
 
